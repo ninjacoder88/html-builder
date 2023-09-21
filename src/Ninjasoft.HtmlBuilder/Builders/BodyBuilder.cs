@@ -9,6 +9,14 @@ namespace Ninjasoft.HtmlBuilder.Builders
             _bodyElement = new XElement("body");
         }
 
+        public BodyBuilder AddAnchor(Action<AnchorBuilder> action)
+        {
+            AnchorBuilder anchorBuilder = new AnchorBuilder();
+            action(anchorBuilder);
+            _bodyElement.Add(anchorBuilder.Build());
+            return this;
+        }
+
         public BodyBuilder AddButon(string text)
         {
             _bodyElement.Add(new XElement("button", text));

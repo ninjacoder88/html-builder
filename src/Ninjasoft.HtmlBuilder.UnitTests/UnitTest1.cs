@@ -28,6 +28,7 @@ namespace Ninjasoft.HtmlBuilder.UnitTests
                     .AddHorizontalRule()
                     .AddHeading(Heading.H3, "Hello")
                     .AddDiv()
+                    .AddAnchor(a => a.SetValue("Click Me"))
                     .AddList(ListType.UnorderedList, ul => ul.Add("Step 1").Add("Step 2")))
                 .Build();
 
