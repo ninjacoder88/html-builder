@@ -9,6 +9,12 @@ namespace Ninjasoft.HtmlBuilder.Builders
             _linkElement = new XElement("link");
         }
 
+        public LinkBuilder SetHref(string href)
+        {
+            _linkElement.SetAttributeValue("href", href);
+            return this;
+        }
+
         public LinkBuilder SetRel(string relationship)
         {
             _linkElement.SetAttributeValue("rel", relationship);
@@ -18,12 +24,6 @@ namespace Ninjasoft.HtmlBuilder.Builders
         public LinkBuilder SetType(string type)
         {
             _linkElement.SetAttributeValue("type", type);
-            return this;
-        }
-
-        public LinkBuilder SetHref(string href)
-        {
-            _linkElement.SetAttributeValue("href", href);
             return this;
         }
 

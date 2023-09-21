@@ -9,14 +9,6 @@ namespace Ninjasoft.HtmlBuilder.Builders
             _tableElement = new XElement("table");
         }
 
-        public TableBuilder AddHead(Action<TableHeadBuilder> action)
-        {
-            TableHeadBuilder tableHeadBuilder = new TableHeadBuilder();
-            action(tableHeadBuilder);
-            _tableElement.Add(tableHeadBuilder.Build());
-            return this;
-        }
-
         public TableBuilder AddBody(Action<TableBodyBuilder> action)
         {
             TableBodyBuilder tableBodyBuilder = new TableBodyBuilder();
@@ -25,6 +17,13 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public TableBuilder AddHead(Action<TableHeadBuilder> action)
+        {
+            TableHeadBuilder tableHeadBuilder = new TableHeadBuilder();
+            action(tableHeadBuilder);
+            _tableElement.Add(tableHeadBuilder.Build());
+            return this;
+        }
         internal XElement Build()
         {
             return _tableElement;

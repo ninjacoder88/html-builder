@@ -9,9 +9,11 @@ namespace Ninjasoft.HtmlBuilder.Builders
             _headElement = new XElement("head");
         }
 
-        public HeadBuilder SetTitle(string title)
+        public HeadBuilder AddLink(Action<LinkBuilder> action)
         {
-            _headElement.Add(new XElement("title", title));
+            LinkBuilder linkBuilder = new LinkBuilder();
+            action(linkBuilder);
+            _headElement.Add(linkBuilder.Build());
             return this;
         }
 
@@ -23,11 +25,9 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
-        public HeadBuilder AddLink(Action<LinkBuilder> action)
+        public HeadBuilder SetTitle(string title)
         {
-            LinkBuilder linkBuilder = new LinkBuilder();
-            action(linkBuilder);
-            _headElement.Add(linkBuilder.Build());
+            _headElement.Add(new XElement("title", title));
             return this;
         }
 

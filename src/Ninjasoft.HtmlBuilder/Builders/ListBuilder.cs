@@ -15,6 +15,10 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public ListBuilder Add(int number) => Add(number.ToString());
+
+        public ListBuilder Add(decimal number) => Add(number.ToString());
+
         public XElement Build()
         {
             return _listElement;
