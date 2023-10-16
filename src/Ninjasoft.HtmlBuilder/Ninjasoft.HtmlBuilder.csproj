@@ -10,7 +10,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/ninjacoder88/html-builder</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Added many new builders: </PackageReleaseNotes>
+    <PackageReleaseNotes>Added builders for button, div, form, input, textarea. Added ability to set attributes on most elements. </PackageReleaseNotes>
     <PackageIcon>transparent-ninjasoft-nuget.png</PackageIcon>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <AssemblyVersion>1.1.0</AssemblyVersion>
@@ -23,6 +23,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
