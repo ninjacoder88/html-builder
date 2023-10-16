@@ -25,6 +25,14 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public HtmlDocument SetAttribute(string name, string value)
+        {
+            _htmlElement.SetAttributeValue(name, value);
+            return this;
+        }
+
+        public HtmlDocument SetClass(string className) => SetAttribute("class", className);
+
         public string Build()
         {
             var xDocument = new XDocument();

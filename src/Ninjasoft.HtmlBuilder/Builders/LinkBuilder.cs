@@ -27,6 +27,16 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public LinkBuilder SetAttribute(string name, string value)
+        {
+            _linkElement.SetAttributeValue(name, value);
+            return this;
+        }
+
+        public LinkBuilder SetClass(string className) => SetAttribute("class", className);
+
+        public LinkBuilder SetId(string className) => SetAttribute("id", className);
+
         internal XElement Build()
         {
             return _linkElement;

@@ -10,16 +10,16 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/ninjacoder88/html-builder</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Added anchor to body. Updated logo</PackageReleaseNotes>
-    <PackageIcon>ninjasoft.png</PackageIcon>
+    <PackageReleaseNotes>Added many new builders: </PackageReleaseNotes>
+    <PackageIcon>transparent-ninjasoft-nuget.png</PackageIcon>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
-    <FileVersion>1.0.2</FileVersion>
-    <Version>1.0.2</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\ninjasoft.png">
+    <None Include="transparent-ninjasoft-nuget.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

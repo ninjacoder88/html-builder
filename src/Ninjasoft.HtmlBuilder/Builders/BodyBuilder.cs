@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using Ninjasoft.HtmlBuilder.Enumerations;
+using System.Xml.Linq;
 
 namespace Ninjasoft.HtmlBuilder.Builders
 {
@@ -9,87 +10,99 @@ namespace Ninjasoft.HtmlBuilder.Builders
             _bodyElement = new XElement("body");
         }
 
-        public BodyBuilder AddAnchor(Action<AnchorBuilder> action)
+        public BodyBuilder AddAnchor(Action<AnchorBuilder> builder)
         {
-            AnchorBuilder anchorBuilder = new AnchorBuilder();
-            action(anchorBuilder);
-            _bodyElement.Add(anchorBuilder.Build());
+            _bodyElement.AddAnchor(builder);
             return this;
         }
 
-        public BodyBuilder AddButon(string text)
+        public BodyBuilder AddButon(Action<ButtonBuilder> builder)
         {
-            _bodyElement.Add(new XElement("button", text));
+            _bodyElement.AddButton(builder);
             return this;
         }
 
-        public BodyBuilder AddDiv()
+        public BodyBuilder AddDiv(Action<DivBuilder> builder)
         {
-            _bodyElement.Add(new XElement("div"));
+            _bodyElement.AddDiv(builder);
             return this;
         }
 
-        public BodyBuilder AddForm()
+        public BodyBuilder AddForm(Action<FormBuilder> builder)
         {
-            _bodyElement.Add(new XElement("form"));
+            _bodyElement.AddForm(builder);
             return this;
         }
 
         public BodyBuilder AddHeading(Heading heading, string text)
         {
-            _bodyElement.Add(new XElement(heading.Tag, text));
+            _bodyElement.AddHeading(heading, text);
             return this;
         }
 
         public BodyBuilder AddHorizontalRule()
         {
-            _bodyElement.Add(new XElement("hr"));
+            _bodyElement.AddHorizontalRule();
             return this;
         }
 
         public BodyBuilder AddImage(string source)
         {
-            var imageElement = new XElement("img");
-            imageElement.SetAttributeValue("src", source);
-            _bodyElement.Add(imageElement);
+            _bodyElement.AddImage(source);
             return this;
         }
 
-        public BodyBuilder AddInput(InputType inputType)
+        public BodyBuilder AddInput(InputType inputType, Action<InputBuilder> builder)
         {
-            var inputElement = new XElement("input");
-            inputElement.SetAttributeValue("type", inputType.Type);
-            _bodyElement.Add(inputElement);
+            _bodyElement.AddInput(inputType, builder);
             return this;
         }
 
         public BodyBuilder AddLineBreak()
         {
-            _bodyElement.Add(new XElement("br"));
+            _bodyElement.AddLineBreak();
             return this;
         }
 
-        public BodyBuilder AddList(ListType listType, Action<ListBuilder> action)
+        public BodyBuilder AddList(ListType listType, Action<ListBuilder> builder)
         {
-            ListBuilder listBuilder = new ListBuilder(listType);
-            action(listBuilder);
-            _bodyElement.Add(listBuilder.Build());
+            _bodyElement.AddList(listType, builder);
             return this;
         }
 
         public BodyBuilder AddParagraph(string text)
         {
-            _bodyElement.Add(new XElement("p", text));
+            _bodyElement.AddParagraph(text);
             return this;
         }
 
-        public BodyBuilder AddTable(Action<TableBuilder> action)
+        public BodyBuilder AddScript(ScriptType scriptType, string source)
         {
-            TableBuilder tableBuilder = new TableBuilder();
-            action(tableBuilder);
-            _bodyElement.Add(tableBuilder.Build());
+            _bodyElement.AddScript(scriptType.TheType, source);
             return this;
         }
+
+        public BodyBuilder AddScript(string scriptType, string source)
+        {
+            _bodyElement.AddScript(scriptType, source);
+            return this;
+        }
+
+        public BodyBuilder AddTable(Action<TableBuilder> builder)
+        {
+            _bodyElement.AddTable(builder);
+            return this;
+        }
+
+        public BodyBuilder SetAttribute(string name, string value)
+        {
+            _bodyElement.SetAttributeValue(name, value);
+            return this;
+        }
+
+        public BodyBuilder SetClass(string className) => SetAttribute("class", className);
+
+        public BodyBuilder SetId(string className) => SetAttribute("id", className);
 
         internal XElement Build()
         {

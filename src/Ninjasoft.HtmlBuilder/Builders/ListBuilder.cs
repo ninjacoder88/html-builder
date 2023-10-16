@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using Ninjasoft.HtmlBuilder.Enumerations;
+using System.Xml.Linq;
 
 namespace Ninjasoft.HtmlBuilder.Builders
 {
@@ -18,6 +19,16 @@ namespace Ninjasoft.HtmlBuilder.Builders
         public ListBuilder Add(int number) => Add(number.ToString());
 
         public ListBuilder Add(decimal number) => Add(number.ToString());
+
+        public ListBuilder SetAttribute(string name, string value)
+        {
+            _listElement.SetAttributeValue(name, value);
+            return this;
+        }
+
+        public ListBuilder SetClass(string className) => SetAttribute("class", className);
+
+        public ListBuilder SetId(string className) => SetAttribute("id", className);
 
         public XElement Build()
         {

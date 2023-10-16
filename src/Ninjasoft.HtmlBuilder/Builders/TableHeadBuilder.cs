@@ -17,6 +17,16 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public TableHeadBuilder SetAttribute(string name, string value)
+        {
+            _tableHeadElement.SetAttributeValue(name, value);
+            return this;
+        }
+
+        public TableHeadBuilder SetClass(string className) => SetAttribute("class", className);
+
+        public TableHeadBuilder SetId(string className) => SetAttribute("id", className);
+
         internal XElement Build()
         {
             return _tableHeadElement;

@@ -2,7 +2,16 @@
 
 namespace Ninjasoft.HtmlBuilder.Builders
 {
-    public interface ITableHeadRowBuilder
+    public interface ITableRowBuilder
+    {
+        ITableRowBuilder SetAttribute(string name, string value);
+
+        ITableRowBuilder SetClass(string className);
+
+        ITableRowBuilder SetId(string className);
+    }
+
+    public interface ITableHeadRowBuilder : ITableRowBuilder
     {
         ITableHeadRowBuilder AddDataHeading(string text);
 
@@ -11,7 +20,7 @@ namespace Ninjasoft.HtmlBuilder.Builders
         ITableHeadRowBuilder AddDataHeading(decimal number);
     }
 
-    public interface ITableBodyRowBuilder
+    public interface ITableBodyRowBuilder : ITableRowBuilder
     {
         ITableBodyRowBuilder AddData(string text);
 
@@ -46,6 +55,16 @@ namespace Ninjasoft.HtmlBuilder.Builders
         public ITableHeadRowBuilder AddDataHeading(int number) => AddDataHeading(number.ToString());
 
         public ITableHeadRowBuilder AddDataHeading(decimal number) => AddDataHeading(number.ToString());
+
+        public ITableRowBuilder SetAttribute(string name, string value)
+        {
+            _tableRowElement.SetAttributeValue(name, value);
+            return this;
+        }
+
+        public ITableRowBuilder SetClass(string className) => SetAttribute("class", className);
+
+        public ITableRowBuilder SetId(string className) => SetAttribute("id", className);
 
         internal XElement Build()
         {

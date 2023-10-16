@@ -17,6 +17,8 @@ namespace Ninjasoft.HtmlBuilder.Builders
 
         public AnchorBuilder SetClass(string className) => SetAttribute("class", className);
 
+        public AnchorBuilder SetId(string className) => SetAttribute("id", className);
+
         public AnchorBuilder SetHref(string href) => SetAttribute("href", href);
 
         public AnchorBuilder SetValue(string value)

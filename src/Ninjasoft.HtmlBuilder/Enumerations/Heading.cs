@@ -1,4 +1,4 @@
-﻿namespace Ninjasoft.HtmlBuilder
+﻿namespace Ninjasoft.HtmlBuilder.Enumerations
 {
     public sealed class Heading
     {

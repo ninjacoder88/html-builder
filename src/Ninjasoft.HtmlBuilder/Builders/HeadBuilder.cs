@@ -31,6 +31,16 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public HeadBuilder SetAttribute(string name, string value)
+        {
+            _headElement.SetAttributeValue(name, value);
+            return this;
+        }
+
+        public HeadBuilder SetClass(string className) => SetAttribute("class", className);
+
+        public HeadBuilder SetId(string className) => SetAttribute("id", className);
+
         public XElement Build()
         {
             return _headElement;
