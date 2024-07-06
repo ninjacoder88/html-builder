@@ -17,10 +17,22 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public HtmlDocument AddBody(BodyBuilder bodyBuilder)
+        {
+            _htmlElement.Add(bodyBuilder.Build());
+            return this;
+        }
+
         public HtmlDocument AddHead(Action<HeadBuilder> action)
         {
             HeadBuilder headBuilder = new HeadBuilder();
             action(headBuilder);
+            _htmlElement.Add(headBuilder.Build());
+            return this;
+        }
+
+        public HtmlDocument AddHead(HeadBuilder headBuilder)
+        {
             _htmlElement.Add(headBuilder.Build());
             return this;
         }

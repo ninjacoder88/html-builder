@@ -1,4 +1,5 @@
 ﻿using Ninjasoft.HtmlBuilder.Enumerations;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Ninjasoft.HtmlBuilder.Builders
@@ -97,6 +98,12 @@ namespace Ninjasoft.HtmlBuilder.Builders
         public DivBuilder AddTextarea(Action<TextareaBuilder> builder)
         {
             _divElement.AddTextarea(builder);
+            return this;
+        }
+
+        public DivBuilder AddHtml(string html)
+        {
+            _divElement.Add(new XRaw(html));
             return this;
         }
 

@@ -94,6 +94,12 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public BodyBuilder AddHtml(string html)
+        {
+            _bodyElement.Add(new XRaw(html));
+            return this;
+        }
+
         public BodyBuilder SetAttribute(string name, string value)
         {
             _bodyElement.SetAttributeValue(name, value);
