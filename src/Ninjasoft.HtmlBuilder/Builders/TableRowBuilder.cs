@@ -18,6 +18,8 @@ namespace Ninjasoft.HtmlBuilder.Builders
         ITableHeadRowBuilder AddDataHeading(int number);
 
         ITableHeadRowBuilder AddDataHeading(decimal number);
+
+        ITableBodyRowBuilder AddData(Action<TableCellBuilder> action);
     }
 
     public interface ITableBodyRowBuilder : ITableRowBuilder
@@ -27,6 +29,8 @@ namespace Ninjasoft.HtmlBuilder.Builders
         ITableBodyRowBuilder AddData(int number);
 
         ITableBodyRowBuilder AddData(decimal number);
+
+        ITableBodyRowBuilder AddData(Action<TableCellBuilder> action);
     }
 
     public sealed class TableRowBuilder : ITableHeadRowBuilder, ITableBodyRowBuilder
@@ -56,6 +60,14 @@ namespace Ninjasoft.HtmlBuilder.Builders
 
         public ITableHeadRowBuilder AddDataHeading(decimal number) => AddDataHeading(number.ToString());
 
+        public ITableBodyRowBuilder AddDataHeading(Action<TableCellBuilder> action)
+        {
+            TableCellBuilder tableCellBuilder = new TableCellBuilder("th");
+            action(tableCellBuilder);
+            _tableRowElement.Add(tableCellBuilder.Build());
+            return this;
+        }
+
         public ITableRowBuilder SetAttribute(string name, string value)
         {
             _tableRowElement.SetAttributeValue(name, value);
@@ -64,7 +76,15 @@ namespace Ninjasoft.HtmlBuilder.Builders
 
         public ITableRowBuilder SetClass(string className) => SetAttribute("class", className);
 
-        public ITableRowBuilder SetId(string className) => SetAttribute("id", className);
+        public ITableRowBuilder SetId(string id) => SetAttribute("id", id);
+
+        public ITableBodyRowBuilder AddData(Action<TableCellBuilder> action)
+        {
+            TableCellBuilder tableCellBuilder = new TableCellBuilder();
+            action(tableCellBuilder);
+            _tableRowElement.Add(tableCellBuilder.Build());
+            return this;
+        }
 
         internal XElement Build()
         {
