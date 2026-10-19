@@ -80,6 +80,13 @@ namespace Ninjasoft.HtmlBuilder
             element.Add(new XElement("p", text));
         }
 
+        public static void AddSection(this XElement element, Action<SectionBuilder> builder)
+        {
+            SectionBuilder sectionBuilder = new();
+            builder(sectionBuilder);
+            element.Add(sectionBuilder.Build());
+        }
+
         public static void AddScript(this XElement element, string scriptType, string source)
         {
             var xe = new XElement("script");

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>Ninjasoft</Authors>
@@ -10,12 +10,12 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/ninjacoder88/html-builder</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Add cell builder. Update to .NET 8</PackageReleaseNotes>
+    <PackageReleaseNotes>Update to .NET 10. Add section element</PackageReleaseNotes>
     <PackageIcon>transparent-ninjasoft-nuget.png</PackageIcon>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-    <AssemblyVersion>2.0.0</AssemblyVersion>
-    <FileVersion>2.0.0</FileVersion>
-    <Version>2.0.0</Version>
+    <AssemblyVersion>3.0.0</AssemblyVersion>
+    <FileVersion>3.0.0</FileVersion>
+    <Version>3.0.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
