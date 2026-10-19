@@ -41,6 +41,7 @@ namespace Ninjasoft.HtmlBuilder.UnitTests
                                     .AddTextarea(textarea => textarea.SetClass("form-control")))
                             )
                             .AddButton(button => button.SetType(ButtonType.Button).SetClass("btn btn-primary").SetText("Load"))
+                            .AddSection(section => section.AddDiv(div => div.AddHtml("")))
                             .AddHorizontalRule()
                             .AddTable(table =>
                                 table.SetClass("table")

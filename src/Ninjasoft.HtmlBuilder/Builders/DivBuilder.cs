@@ -83,6 +83,12 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public DivBuilder AddSection(Action<SectionBuilder> builder)
+        {
+            _divElement.AddSection(builder);
+            return this;
+        }
+
         public DivBuilder AddSelect(Action<SelectBuilder> builder)
         {
             _divElement.AddSelect(builder);

@@ -76,6 +76,12 @@ namespace Ninjasoft.HtmlBuilder.Builders
             return this;
         }
 
+        public BodyBuilder AddSection(Action<SectionBuilder> builder)
+        {
+            _bodyElement.AddSection(builder);
+            return this;
+        }
+
         public BodyBuilder AddScript(ScriptType scriptType, string source)
         {
             _bodyElement.AddScript(scriptType.TheType, source);
